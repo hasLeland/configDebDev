@@ -210,8 +210,13 @@ fi
 if [ -d "$HOME/bin/go/" ]; then
     export GOROOT="$HOME/bin/go"
     export PATH="$PATH:$GOROOT/bin"
-    export GOPATH="/home/leland/projects/go-projects/"
+    export GOPATH="/home/leland/projects/go-projects"
     export PATH="$PATH:${GOPATH//://bin:}/bin"
+    export GOCODE="$GOPATH/src/github.com"
+	# Prints the function names and arguments for a given file
+	function gofuncs {
+		ag func "$1" --nocolor --nonumbers | sed -e 's|func\W([^)]*)\W||' | sed -e 's/func\W//' | sed -e 's/)\W.*/)/' | sed -e 's|.*//.*||' | sed -e '/^$/d'
+	}
 fi
 
 # Does rust specific setup
@@ -243,5 +248,15 @@ export ANDROID_HOME="$HOME/Android/Sdk/"
 export PATH=$PATH:$ANDROID_HOME/build-tools/23.0.1/
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
+
+# Tune specific configuration
+#
+# Auto-mount the shared folder from Virtualbox to the '~/projects/' folder if
+# it's not already been mounted
+if [ ! -d "$HOME/projects/go-projects" ]; then
+    sudo mount -t vboxsf -o rw,uid=1000,gid=1000 projects "$HOME/projects/"
+else
+    echo "Virtualbox shared folder already mounted; ignoring"
+fi
 
 

@@ -208,3 +208,15 @@ map <leader>" "+
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 map <leader>cd <plug>NERDCommenterToggle
+
+" Enable all the fancy vim-go syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" Enable vim-go experimental mode to allow for stop code folding from
+" disapearing when a buffer is written
+"let g:go_fmt_experimental = 1
