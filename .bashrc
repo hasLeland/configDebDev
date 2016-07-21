@@ -210,7 +210,7 @@ fi
 if [ -d "$HOME/bin/go/" ]; then
     export GOROOT="$HOME/bin/go"
     export PATH="$PATH:$GOROOT/bin"
-    export GOPATH="/home/leland/projects/go-projects"
+    export GOPATH="$HOME/projects/go-projects"
     export PATH="$PATH:${GOPATH//://bin:}/bin"
     export GOCODE="$GOPATH/src/github.com"
 	# Prints the function names and arguments for a given file
