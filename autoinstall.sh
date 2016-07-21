@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install with 
 #
-# curl https://raw.githubusercontent.com/lelandbatey/configDebDev/master/autoinstall.sh | sh
+# curl https://raw.githubusercontent.com/hasLeland/configDebDev/master/autoinstall.sh | sh
 
 sudo apt-get update
 sudo apt-get -y install git make htop python-pip
@@ -22,9 +22,9 @@ fi
 
 # Installs all parts of my dotfiles repository
 cd ~
-git clone "https://github.com/lelandbatey/configDebDev.git"
+git clone "https://github.com/hasLeland/configDebDev.git"
 cd configDebDev
 
 python install.py --act safe
-#python install.py --act prepvim
+python install.py --act prepvim
 #python install.py --act bashmarks
