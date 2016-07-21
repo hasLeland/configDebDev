@@ -255,8 +255,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 # it's not already been mounted
 if [ ! -d "$HOME/projects/go-projects" ]; then
     sudo mount -t vboxsf -o rw,uid=1000,gid=1000 projects "$HOME/projects/"
-else
-    echo "Virtualbox shared folder already mounted; ignoring"
+#else
+#    echo "Virtualbox shared folder already mounted; ignoring"
 fi
 
 
